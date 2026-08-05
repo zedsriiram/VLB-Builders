@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #111111;
+  color: #F9FAFB;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F4B400;
+}
+
+/* Custom Selection */
+::selection {
+  background-color: #F4B400;
+  color: #111111;
+}
+
+.glass-card {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card-hover {
+  transition: all 0.3s ease;
+}
+.glass-card-hover:hover {
+  border-color: rgba(244, 180, 0, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -10px rgba(244, 180, 0, 0.25);
+}
+
+.text-gradient-yellow {
+  background: linear-gradient(135deg, #FFF 0%, #F4B400 60%, #E0A000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
