@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/assets/logo-CSoOxc8h.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Title & Meta Tags -->
+    <title>VLB Builders | Premium Construction, 3D Elevation & Real Estate</title>
+    <meta
+      name="description"
+      content="VLB Builders by Veebin Victo offers turnkey construction, 2D/3D elevation designs, swimming pools, building renovations, cost estimation & RR works. Call +91 85258 52372."
+    />
+    <meta name="keywords" content="VLB Builders, Veebin Victo, Construction Company, 3D Elevation, Swimming Pool Works, Building Renovation, Real Estate, Plan Estimate" />
+    <meta name="author" content="Veebin Victo - VLB Builders" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="VLB Builders - Premium Construction & Engineering" />
+    <meta property="og:description" content="Turnkey villa construction, 3D elevation, swimming pool works, and renovations led by Veebin Victo." />
+    <meta property="og:image" content="./public/images/hero.jpg" />
+    <meta property="og:type" content="website" />
+
+    <!-- Google Fonts & Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                yellow: '#F4B400',
+                yellowHover: '#D99F00',
+                dark: '#111111',
+                card: '#1A1A1A'
+              }
+            },
+            boxShadow: {
+              'glow-yellow': '0 0 25px -5px rgba(244, 180, 0, 0.4)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #111111;
+        color: #F9FAFB;
+        overflow-x: hidden;
+      }
+      .glass-card {
+        background: rgba(26, 26, 26, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glass-card-hover {
+        transition: all 0.3s ease;
+      }
+      .glass-card-hover:hover {
+        border-color: rgba(244, 180, 0, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px -10px rgba(244, 180, 0, 0.25);
+      }
+      .text-gradient-yellow {
+        background: linear-gradient(135deg, #FFF 0%, #F4B400 60%, #E0A000 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #111111;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #2a2a2a;
+        border-radius: 5px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #F4B400;
+      }
+    </style>
+
+    <!-- React, ReactDOM, Babel & Lucide Icons -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="bg-[#111111] text-white selection:bg-[#F4B400] selection:text-black">
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState, useEffect } = React;
+
+      // Icon Component using Lucide
+      const Icon = ({ name, className = "w-5 h-5" }) => {
+        useEffect(() => {
+          if (window.lucide) {
+            window.lucide.createIcons();
+          }
+        }, [name]);
+        return <i data-lucide={name} className={className}></i>;
+      };
+
+      // Navbar
+      function Navbar() {
+        const [isScrolled, setIsScrolled] = useState(false);
+        const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+        useEffect(() => {
+          const handleScroll = () => setIsScrolled(window.scrollY > 20);
+          window.addEventListener('scroll', handleScroll);
+          return () => window.removeEventListener('scroll', handleScroll);
+        }, []);
+
+        const navLinks = [
+          { name: 'Home', href: '#home' },
+          { name: 'About Us', href: '#about' },
+          { name: 'Services', href: '#services' },
+          { name: 'Why Us', href: '#why-us' },
+          { name: 'Projects', href: '#gallery' },
+          { name: 'Contact', href: '#contact' },
+        ];
+
+        return (
+          <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#111111]/90 backdrop-blur-md border-b border-white/10 py-3 shadow-xl' : 'bg-gradient-to-b from-black/80 to-transparent py-5'}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex items-center justify-between">
+                <a href="#home" className="flex items-center gap-3 group">
+                  <div className="relative overflow-hidden rounded-lg border border-[#F4B400]/40 p-1 bg-black/60 group-hover:border-[#F4B400] transition-colors">
+                    <img src="./public/images/logo.png" alt="VLB Builders Logo" className="h-10 w-auto object-contain" onError={(e) => e.target.src='./public/images/logo.png'} />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xl font-extrabold tracking-wider text-white group-hover:text-[#F4B400] transition-colors">
+                      VLB <span className="text-[#F4B400]">BUILDERS</span>
+                    </span>
+                    <span className="text-[10px] tracking-widest text-gray-400 uppercase font-medium">Er. Veebin Victo</span>
+                  </div>
+                </a>
+
+                <nav className="hidden md:flex items-center gap-8">
+                  {navLinks.map((link) => (
+                    <a key={link.name} href={link.href} className="text-sm font-medium text-gray-300 hover:text-[#F4B400] transition-colors py-1">
+                      {link.name}
+                    </a>
+                  ))}
+                </nav>
+
+                <div className="hidden lg:flex items-center gap-4">
+                  <a href="tel:+918525852372" className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#F4B400] hover:bg-[#d99f00] text-black font-bold text-sm shadow-glow-yellow hover:scale-105 transition-all">
+                    <Icon name="phone" className="w-4 h-4" />
+                    <span>+91 85258 52372</span>
+                  </a>
+                </div>
+
+                <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 rounded-lg bg-zinc-900 border border-zinc-800 text-gray-300 hover:text-[#F4B400]">
+                  <Icon name={mobileMenuOpen ? "x" : "menu"} className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+
+            {mobileMenuOpen && (
+              <div className="md:hidden bg-[#161616] border-b border-zinc-800 px-4 pt-3 pb-6 space-y-3 mt-3">
+                {navLinks.map((link) => (
+                  <a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-[#F4B400] hover:bg-zinc-800/60">
+                    {link.name}
+                  </a>
+                ))}
+                <div className="pt-2">
+                  <a href="tel:+918525852372" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg bg-[#F4B400] text-black font-bold text-base">
+                    <Icon name="phone" className="w-5 h-5" />
+                    <span>Call Us: +91 85258 52372</span>
+                  </a>
+                </div>
+              </div>
+            )}
+          </header>
+        );
+      }
+
+      // Hero
+      function Hero() {
+        return (
+          <section id="home" className="relative min-h-screen pt-28 pb-16 flex items-center justify-center overflow-hidden bg-[#111111]">
+            <div className="absolute inset-0 z-0">
+              <img src="./public/images/hero.jpg" alt="Hero" className="w-full h-full object-cover opacity-35 filter brightness-75 scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#111111]/80 to-black/60" />
+            </div>
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left">
+              <div className="grid lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-7 space-y-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900/90 border border-[#F4B400]/40 text-[#F4B400] text-xs sm:text-sm font-semibold tracking-wide uppercase">
+                    <Icon name="shield-check" className="w-4 h-4" />
+                    <span>Premium Construction & Architectural Engineering</span>
+                  </div>
+
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
+                    Crafting Superior <br className="hidden sm:inline" />
+                    <span className="text-gradient-yellow">Structures & Dreams</span>
+                  </h1>
+
+                  <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                    Led by <strong className="text-white">Er. Veebin Victo</strong>, VLB Builders provides end-to-end engineering, 3D elevations, luxury real estate development, swimming pools, RR works, and turnkey construction.
+                  </p>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-200">
+                      <Icon name="check-circle" className="w-4 h-4 text-[#F4B400]" />
+                      <span>Modern 3D Elevation</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-200">
+                      <Icon name="check-circle" className="w-4 h-4 text-[#F4B400]" />
+                      <span>Turnkey Construction</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-200">
+                      <Icon name="check-circle" className="w-4 h-4 text-[#F4B400]" />
+                      <span>On-Time Delivery</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#contact" className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#F4B400] hover:bg-[#d99f00] text-black font-extrabold text-base flex items-center justify-center gap-3 shadow-glow-yellow hover:scale-105 transition-all">
+                      <span>Get Free Consultation</span>
+                      <Icon name="arrow-right" className="w-5 h-5" />
+                    </a>
+                    <a href="#gallery" className="w-full sm:w-auto px-8 py-4 rounded-lg bg-zinc-900/90 border border-zinc-700 hover:border-[#F4B400] text-white hover:text-[#F4B400] font-bold text-base flex items-center justify-center gap-2 transition-all">
+                      <Icon name="building-2" className="w-5 h-5" />
+                      <span>View Recent Projects</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5">
+                  <div className="glass-card rounded-2xl p-6 sm:p-8 border border-white/10 shadow-2xl relative overflow-hidden group">
+                    <div className="flex items-center gap-4 pb-6 border-b border-zinc-800">
+                      <img src="./public/images/logo.png" alt="Logo" className="w-14 h-14 object-contain rounded-lg p-1 bg-black/80 border border-[#F4B400]/40" />
+                      <div className="text-left">
+                        <h3 className="text-xl font-bold text-white">VLB BUILDERS</h3>
+                        <p className="text-xs text-[#F4B400] font-semibold uppercase tracking-wider">Er. Veebin Victo (Owner)</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4 my-6 text-left">
+                      <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
+                        <div className="text-3xl font-black text-[#F4B400]">67+</div>
+                        <div className="text-xs text-gray-400 font-medium mt-1">Completed Projects</div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
+                        <div className="text-3xl font-black text-[#F4B400]">100%</div>
+                        <div className="text-xs text-gray-400 font-medium mt-1">Structural Guarantee</div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
+                        <div className="text-3xl font-black text-[#F4B400]">8+</div>
+                        <div className="text-xs text-gray-400 font-medium mt-1">Specialized Services</div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
+                        <div className="text-3xl font-black text-[#F4B400]">5★</div>
+                        <div className="text-xs text-gray-400 font-medium mt-1">Client Satisfaction</div>
+                      </div>
+                    </div>
+
+                    <a href="https://wa.me/918525852372" target="_blank" rel="noopener noreferrer" className="w-full py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center justify-center gap-2 transition-colors shadow-lg">
+                      <Icon name="message-square" className="w-4 h-4" />
+                      <span>Chat Directly on WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // About
+      function About() {
+        return (
+          <section id="about" className="py-24 bg-[#141414] relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid lg:grid-cols-12 gap-12 items-center">
+                <div className="lg:col-span-5 relative">
+                  <div className="relative z-10 rounded-2xl overflow-hidden border-2 border-[#F4B400]/30 shadow-2xl group">
+                    <img src="./public/images/about.jpg" alt="About" className="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-card border border-white/10">
+                      <div className="flex items-center gap-3">
+                        <img src="public/images/veebin.jpeg" alt="Veebin Victo" className="w-12 h-12 rounded-full object-cover" /> 
+                        <div>
+                          <h4 className="text-white font-bold text-base">Veebin Victo</h4>
+                          <p className="text-[#F4B400] text-xs font-semibold">Founder & Lead Engineer</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 space-y-6 text-left">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-[#F4B400]/30 text-[#F4B400] text-xs font-bold uppercase tracking-widest">
+                    <span>About VLB Builders</span>
+                  </div>
+
+                  <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                    Building Legacy with <span className="text-[#F4B400]">Unmatched Engineering</span> & Integrity
+                  </h2>
+
+                  <p className="text-gray-300 text-base leading-relaxed">
+                    At <strong>VLB Builders</strong>, we believe every structure tells a story. Managed under the visionary leadership of <strong>Veebin Victo</strong>, our firm delivers complete construction solutions from initial architectural blueprint planning to final key handover.
+                  </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4 pt-4">
+                    <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 flex items-start gap-3">
+                      <div className="p-2 rounded-lg bg-[#F4B400]/10 text-[#F4B400]">
+                        <Icon name="compass" className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-bold text-sm">3D Elevation & Planning</h4>
+                        <p className="text-gray-400 text-xs mt-1">Realistic 3D visual models before break-ground.</p>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-zinc-900/80 border border-zinc-800 flex items-start gap-3">
+                      <div className="p-2 rounded-lg bg-[#F4B400]/10 text-[#F4B400]">
+                        <Icon name="award" className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-bold text-sm">Certified Materials</h4>
+                        <p className="text-gray-400 text-xs mt-1">Strict grade steel, concrete & quality finishes.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Services
+      function Services() {
+        const [selectedService, setSelectedService] = useState(null);
+
+        const servicesData = [
+          { id: 'plan', title: 'Plan & Architectural Layout', desc: 'Comprehensive 2D & 3D floor plans crafted strictly according to Vastu and structural safety.', icon: 'file-text', full: 'Our architectural design and planning services encompass site analysis, structural engineering blueprints, spatial layout optimization, Vastu compliance, and local municipal permit approvals.' },
+          { id: 'estimate', title: 'Cost Estimation & Budgeting', desc: 'Accurate, transparent material and labor cost calculations to ensure your project stays on budget.', icon: 'calculator', full: 'Avoid unexpected costs with our itemized quantity estimation and budgeting solutions covering raw materials, labor, finishes, plumbing, and timeline milestones.' },
+          { id: '3d-elevation', title: '3D Elevation Design', desc: 'Ultra-realistic 3D exterior and interior architectural visualizations before construction begins.', icon: 'box', full: 'Experience your dream home in photorealistic 3D detail showcasing lighting, texture, color palettes, cladding, landscaping, and night views.' },
+          { id: 'real-estate', title: 'Real Estate & Land', desc: 'Assisting clients in identifying prime plots, property valuation, and turnkey construction.', icon: 'home', full: 'VLB Builders connects clients with prime residential and commercial real estate assets with complete property development services.' },
+          { id: 'swimming-pool', title: 'Swimming Pool Works', desc: 'Design, excavation, concrete casting, waterproofing, tiling, and filtration system installation.', icon: 'waves', full: 'Transform your outdoor space with custom-engineered swimming pools, RCC casting, waterproofing, filtration, and underwater LED lighting.' },
+          { id: 'rr-works', title: 'R.R Works & Masonry', desc: 'Random Rubble (R.R) masonry, foundation retaining walls, compound walls, and heavy civil work.', icon: 'hammer', full: 'R.R stone masonry, foundation building, slope retaining walls, and durable reinforced concrete structures engineered for decades of endurance.' },
+          { id: 'renovation', title: 'Building Renovation', desc: 'Modernizing outdated structural layouts, exterior remodeling, space expansion, and reinforcement.', icon: 'sparkles', full: 'Breathe new life into existing buildings with floor addition, exterior facade modernizations, open-concept overhauls, and structural repairs.' },
+          { id: 'maintenance', title: 'Maintenance Works', desc: 'Prompt repair, plumbing, electrical upgrades, painting, waterproofing, and ongoing upkeep.', icon: 'wrench', full: 'Keep your property in pristine condition with leak repair, weather-shield painting, plumbing/electrical upgrades, and preventative structural care.' }
+        ];
+
+        return (
+          <section id="services" className="py-24 bg-[#111111] relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-[#F4B400]/40 text-[#F4B400] text-xs font-bold uppercase tracking-widest">
+                  <span>Our Services</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                  Comprehensive <span className="text-[#F4B400]">Construction Services</span>
+                </h2>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {servicesData.map((item) => (
+                  <div key={item.id} onClick={() => setSelectedService(item)} className="glass-card glass-card-hover rounded-2xl p-6 flex flex-col justify-between cursor-pointer group">
+                    <div>
+                      <div className="w-14 h-14 rounded-xl bg-zinc-900 border border-zinc-800 text-[#F4B400] flex items-center justify-center mb-5 group-hover:bg-[#F4B400] group-hover:text-black transition-colors">
+                        <Icon name={item.icon} className="w-7 h-7" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#F4B400] transition-colors">{item.title}</h3>
+                      <p className="text-gray-400 text-xs leading-relaxed mb-4">{item.desc}</p>
+                    </div>
+                    <div className="pt-4 border-t border-zinc-800 flex items-center justify-between text-xs font-semibold text-[#F4B400]">
+                      <span>Learn More</span>
+                      <Icon name="arrow-right" className="w-4 h-4" />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {selectedService && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+                <div className="bg-[#181818] border border-zinc-700 w-full max-w-xl rounded-2xl p-6 relative shadow-2xl">
+                  <button onClick={() => setSelectedService(null)} className="absolute top-4 right-4 p-2 rounded-full bg-zinc-800 text-gray-400 hover:text-white">
+                    <Icon name="x" className="w-5 h-5" />
+                  </button>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="p-3 rounded-xl bg-[#F4B400]/10 text-[#F4B400]">
+                      <Icon name={selectedService.icon} className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white">{selectedService.title}</h3>
+                  </div>
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6">{selectedService.full}</p>
+                  <a href={`https://wa.me/918525852372?text=Inquiry%20regarding%20${encodeURIComponent(selectedService.title)}`} target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-lg bg-[#F4B400] text-black font-bold text-sm flex items-center justify-center gap-2">
+                    <span>Inquire Now via WhatsApp</span>
+                    <Icon name="arrow-right" className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            )}
+          </section>
+        );
+      }
+
+      // Why Choose Us
+      function WhyChooseUs() {
+        const items = [
+          { icon: 'shield-check', title: 'Structural Safety & Quality', desc: 'Engineered strictly adhering to structural safety standards and high-grade materials.' },
+          { icon: 'clock', title: 'Strict On-Time Delivery', desc: 'Milestone tracking schedules ensure your building keys are handed over on time.' },
+          { icon: 'box', title: '3D Pre-Visualization', desc: 'Preview your villa with ultra-realistic 3D elevations prior to groundbreaking.' },
+          { icon: 'dollar-sign', title: 'Transparent Costing', desc: 'Clear itemized estimation contracts protecting against unexpected material price spikes.' },
+          { icon: 'award', title: 'Expert Engineering', desc: 'Direct site supervision led by founder & civil engineer Er. Veebin Victo.' },
+          { icon: 'thumbs-up', title: 'Turnkey Execution', desc: 'From soil testing and blueprints to swimming pools, interior fit-outs, and maintenance.' }
+        ];
+
+        return (
+          <section id="why-us" className="py-24 bg-[#161616] relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-[#F4B400]/40 text-[#F4B400] text-xs font-bold uppercase tracking-widest">
+                  <span>Why VLB Builders</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                  Engineered for <span className="text-[#F4B400]">Enduring Excellence</span>
+                </h2>
+              </div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {items.map((item, idx) => (
+                  <div key={idx} className="p-8 rounded-2xl bg-zinc-900/60 border border-zinc-800 hover:border-[#F4B400]/50 transition-all group">
+                    <div className="w-14 h-14 rounded-xl bg-black border border-zinc-800 flex items-center justify-center mb-6 text-[#F4B400]">
+                      <Icon name={item.icon} className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#F4B400] transition-colors">{item.title}</h3>
+                    <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Gallery
+      function Gallery() {
+        const [activeCategory, setActiveCategory] = useState('All');
+        const [selectedImage, setSelectedImage] = useState(null);
+
+        const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Theatre Concept', 'Landscaping' , 'Renovation'];
+
+        const projects = [
+          { id: 1, src: './public/images/project1.jpg', title: 'Modern Villa Elevation', category: '3D Elevation' },
+          { id: 2, src: './public/images/project2.jpg', title: 'Luxury House Construction', category: '3D Elevation' },
+          { id: 3, src: './public/images/project3.jpg', title: 'Custom Interior Elevation', category: '3D Elevation' },
+          { id: 4, src: './public/images/project4.jpg', title: 'Contemporary Residence', category: 'Residential' },
+          { id: 5, src: './public/images/project5.jpg', title: 'Bedroom Interior Desgin', category: 'Residential' },
+          { id: 6, src: './public/images/project6.jpg', title: 'Acoustic Wall & Upgrade', category: 'Theatre Concept' },
+          { id: 7, src: './public/images/project7.jpg', title: 'Swimming pool Project', category: 'Pool & RR Works' },
+          { id: 8, src: './public/images/project8.jpg', title: 'Swimming Pool Installation', category: 'Pool & RR Works' },
+          { id: 9, src: './public/images/project9.jpg', title: 'Compact Duplex Elevation', category: '3D Elevation' },
+          { id: 10, src: './public/images/project10.jpg', title: 'Commercial Landscaping Bench Works', category: 'Landscaping' },
+          { id: 11, src: './public/images/project11.jpg', title: 'Exterior Wall Remodeling', category: 'Renovation' },
+          { id: 12, src: './public/images/project12.jpg', title: 'Specific Interior Features', category: 'Residential' },
+          { id: 13, src: './public/images/project13.jpg', title: 'Modern Bedroom Features', category: 'Residential' },
+          { id: 14, src: './public/images/project14.jpg', title: 'Home theatre Concept', category: 'Theatre Concept' },
+          { id: 15, src: './public/images/project15.jpg', title: 'Complete Gardening & Landscaping', category: 'Landscaping' },
+          { id: 16, src: './public/images/project16.jpg', title: 'Standard Room Sizing', category: 'Residential' },
+          { id: 17, src: './public/images/project17.jpg', title: 'Facade Design', category: 'Renovation' }
+        ];
+
+        const filtered = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory);
+
+        return (
+          <section id="gallery" className="py-24 bg-[#111111] relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-[#F4B400]/40 text-[#F4B400] text-xs font-bold uppercase tracking-widest">
+                  <span>Projects Portfolio</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                  Our Portfolio of <span className="text-[#F4B400]">Craftsmanship</span>
+                </h2>
+              </div>
+
+              <div className="flex flex-wrap justify-center gap-2 mb-12">
+                {categories.map((cat) => (
+                  <button key={cat} onClick={() => setActiveCategory(cat)} className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${activeCategory === cat ? 'bg-[#F4B400] text-black shadow-glow-yellow' : 'bg-zinc-900 text-gray-300 border border-zinc-800'}`}>
+                    {cat}
+                  </button>
+                ))}
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {filtered.map((item) => (
+                  <div key={item.id} onClick={() => setSelectedImage(item)} className="group rounded-2xl overflow-hidden bg-zinc-900 border border-zinc-800 cursor-pointer">
+                    <div className="aspect-[4/3] overflow-hidden relative">
+                      <img src={item.src} alt={item.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                      <div className="absolute top-3 left-3 px-3 py-1 rounded bg-black/70 text-[#F4B400] text-[11px] font-bold uppercase">{item.category}</div>
+                    </div>
+                    <div className="p-4 bg-[#181818]">
+                      <h3 className="text-base font-bold text-white group-hover:text-[#F4B400] transition-colors">{item.title}</h3>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {selectedImage && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+                <div className="relative max-w-4xl w-full bg-[#161616] border border-zinc-700 rounded-2xl overflow-hidden">
+                  <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 p-2.5 rounded-full bg-black/70 text-white z-10">
+                    <Icon name="x" className="w-6 h-6" />
+                  </button>
+                  <div className="max-h-[70vh] bg-black flex items-center justify-center">
+                    <img src={selectedImage.src} alt={selectedImage.title} className="w-full h-full object-contain max-h-[70vh]" />
+                  </div>
+                  <div className="p-6 bg-[#1A1A1A] flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{selectedImage.title}</h3>
+                      <p className="text-xs text-[#F4B400] uppercase font-bold">{selectedImage.category}</p>
+                    </div>
+                    <a href="https://wa.me/918525852372" target="_blank" rel="noopener noreferrer" className="px-6 py-2.5 rounded-lg bg-[#F4B400] text-black font-bold text-sm">
+                      Inquire About Similar Project
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+          </section>
+        );
+      }
+
+      // Contact
+      function Contact() {
+        const [submitted, setSubmitted] = useState(false);
+
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          setSubmitted(true);
+        };
+
+        return (
+          <section id="contact" className="py-24 bg-[#141414] relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-[#F4B400]/40 text-[#F4B400] text-xs font-bold uppercase tracking-widest">
+                  <span>Contact Us</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                  Let's Build Your <span className="text-[#F4B400]">Vision Together</span>
+                </h2>
+              </div>
+
+              <div className="grid lg:grid-cols-12 gap-12">
+                <div className="lg:col-span-5 space-y-6">
+                  <div className="p-6 sm:p-8 rounded-2xl bg-zinc-900 border border-[#F4B400]/30 shadow-xl">
+                    <div className="flex items-center gap-4 pb-6 border-b border-zinc-800">
+                      <img src="public/images/veebin.jpeg" alt="Veebin Victo" className="w-16 h-16 rounded-full object-cover" /> 
+                      <div>
+                        <h3 className="text-xl font-bold text-white">Veebin Victo</h3>
+                        <p className="text-[#F4B400] text-xs font-semibold uppercase">Owner & Civil Engineer</p>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 pt-6">
+                      <a href="tel:+918525852372" className="flex items-center gap-4 p-4 rounded-xl bg-black/40 border border-zinc-800 hover:border-[#F4B400]">
+                        <div className="p-3 rounded-lg bg-[#F4B400]/10 text-[#F4B400]"><Icon name="phone" className="w-5 h-5" /></div>
+                        <div>
+                          <div className="text-xs text-gray-400">Phone</div>
+                          <div className="text-white font-bold">+91 85258 52372</div>
+                        </div>
+                      </a>
+
+                      <a href="mailto:veebin71@gmail.com" className="flex items-center gap-4 p-4 rounded-xl bg-black/40 border border-zinc-800 hover:border-[#F4B400]">
+                        <div className="p-3 rounded-lg bg-[#F4B400]/10 text-[#F4B400]"><Icon name="mail" className="w-5 h-5" /></div>
+                        <div>
+                          <div className="text-xs text-gray-400">Email</div>
+                          <div className="text-white font-bold">veebin71@gmail.com</div>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7">
+                  <div className="p-6 sm:p-8 rounded-2xl bg-zinc-900 border border-zinc-800 shadow-xl">
+                    <h3 className="text-2xl font-bold text-white mb-4">Request a Consultation</h3>
+                    {submitted ? (
+                      <div className="p-6 rounded-xl bg-emerald-950 border border-emerald-500/40 text-center text-emerald-200 font-bold">
+                        Thank you! Er. Veebin Victo will contact you shortly.
+                      </div>
+                    ) : (
+                      <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <input type="text" placeholder="Your Name" required className="w-full px-4 py-3 rounded-lg bg-black/60 border border-zinc-700 text-white text-sm" />
+                          <input type="tel" placeholder="Phone Number" required className="w-full px-4 py-3 rounded-lg bg-black/60 border border-zinc-700 text-white text-sm" />
+                        </div>
+                        <input type="email" placeholder="Email Address" required className="w-full px-4 py-3 rounded-lg bg-black/60 border border-zinc-700 text-white text-sm" />
+                        <textarea rows="4" placeholder="Describe your project requirements..." required className="w-full px-4 py-3 rounded-lg bg-black/60 border border-zinc-700 text-white text-sm"></textarea>
+                        <button type="submit" className="w-full py-4 rounded-lg bg-[#F4B400] text-black font-extrabold text-base flex items-center justify-center gap-2 shadow-glow-yellow">
+                          <Icon name="send" className="w-5 h-5" />
+                          <span>Submit Inquiry</span>
+                        </button>
+                      </form>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      // Footer
+      function Footer() {
+        return (
+          <footer className="bg-black text-gray-400 border-t border-zinc-900 pt-16 pb-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pb-8 border-b border-zinc-900">
+                <div className="flex items-center gap-3">
+                  <img src="./public/images/logo.png" alt="Logo" className="h-10 w-auto object-contain rounded bg-black border border-[#F4B400]/40" />
+                  <span className="text-xl font-extrabold text-white">VLB <span className="text-[#F4B400]">BUILDERS</span></span>
+                </div>
+                <div className="text-xs text-gray-400">Owner & Civil Engineer: <strong className="text-[#F4B400]">Veebin Victo</strong></div>
+              </div>
+              <div className="pt-8 text-center text-xs text-gray-500">
+                © {new Date().getFullYear()} VLB Builders. All Rights Reserved.
+              </div>
+            </div>
+          </footer>
+        );
+      }
+
+      // App Container
+      function App() {
+        return (
+          <div className="min-h-screen bg-[#111111] text-white">
+            <Navbar />
+            <main>
+              <Hero />
+              <About />
+              <Services />
+              <WhyChooseUs />
+              <Gallery />
+              <Contact />
+            </main>
+            <Footer />
+            <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+              <a href="https://wa.me/918525852372" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-110 transition-transform">
+                <Icon name="message-square" className="w-6 h-6" />
+              </a>
+              <a href="tel:+918525852372" className="w-12 h-12 rounded-full bg-[#F4B400] text-black flex items-center justify-center shadow-glow-yellow hover:scale-110 transition-transform">
+                <Icon name="phone" className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
+</html>

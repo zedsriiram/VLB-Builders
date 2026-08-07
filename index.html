@@ -247,7 +247,7 @@
 
                     <div className="grid grid-cols-2 gap-4 my-6 text-left">
                       <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
-                        <div className="text-3xl font-black text-[#F4B400]">100+</div>
+                        <div className="text-3xl font-black text-[#F4B400]">67+</div>
                         <div className="text-xs text-gray-400 font-medium mt-1">Completed Projects</div>
                       </div>
                       <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
@@ -288,7 +288,7 @@
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                     <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-card border border-white/10">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 rounded-full bg-[#F4B400] flex items-center justify-center text-black font-extrabold text-xl">VV</div>
+                        <img src="public/images/veebin.jpeg" alt="Veebin Victo" className="w-12 h-12 rounded-full object-cover" /> 
                         <div>
                           <h4 className="text-white font-bold text-base">Veebin Victo</h4>
                           <p className="text-[#F4B400] text-xs font-semibold">Founder & Lead Engineer</p>
@@ -453,26 +453,26 @@
         const [activeCategory, setActiveCategory] = useState('All');
         const [selectedImage, setSelectedImage] = useState(null);
 
-        const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Renovation'];
+        const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Theatre Concept', 'Landscaping' , 'Renovation'];
 
         const projects = [
           { id: 1, src: './public/images/project1.jpg', title: 'Modern Villa Elevation', category: '3D Elevation' },
-          { id: 2, src: './public/images/project2.jpg', title: 'Luxury House Construction', category: 'Residential' },
-          { id: 3, src: './public/images/project3.jpg', title: 'Custom Exterior Elevation', category: '3D Elevation' },
+          { id: 2, src: './public/images/project2.jpg', title: 'Luxury House Construction', category: '3D Elevation' },
+          { id: 3, src: './public/images/project3.jpg', title: 'Custom Interior Elevation', category: '3D Elevation' },
           { id: 4, src: './public/images/project4.jpg', title: 'Contemporary Residence', category: 'Residential' },
-          { id: 5, src: './public/images/project5.jpg', title: 'R.R Masonry & Slope Works', category: 'Pool & RR Works' },
-          { id: 6, src: './public/images/project6.jpg', title: 'Building Renovation & Upgrade', category: 'Renovation' },
-          { id: 7, src: './public/images/project7.jpg', title: 'Luxury Villa Project', category: 'Residential' },
+          { id: 5, src: './public/images/project5.jpg', title: 'Bedroom Interior Desgin', category: 'Residential' },
+          { id: 6, src: './public/images/project6.jpg', title: 'Acoustic Wall & Upgrade', category: 'Theatre Concept' },
+          { id: 7, src: './public/images/project7.jpg', title: 'Swimming pool Project', category: 'Pool & RR Works' },
           { id: 8, src: './public/images/project8.jpg', title: 'Swimming Pool Installation', category: 'Pool & RR Works' },
           { id: 9, src: './public/images/project9.jpg', title: 'Compact Duplex Elevation', category: '3D Elevation' },
-          { id: 10, src: './public/images/project10.jpg', title: 'Commercial Foundation Works', category: 'Pool & RR Works' },
+          { id: 10, src: './public/images/project10.jpg', title: 'Commercial Landscaping Bench Works', category: 'Landscaping' },
           { id: 11, src: './public/images/project11.jpg', title: 'Exterior Wall Remodeling', category: 'Renovation' },
-          { id: 12, src: './public/images/project12.jpg', title: 'Luxury Swimming Pool', category: 'Pool & RR Works' },
-          { id: 13, src: './public/images/project13.jpg', title: 'Modern Flat-Roof Villa', category: 'Residential' },
-          { id: 14, src: './public/images/project14.jpg', title: 'Urban Elevation Concept', category: '3D Elevation' },
-          { id: 15, src: './public/images/project15.jpg', title: 'Complete Home Overhaul', category: 'Renovation' },
-          { id: 16, src: './public/images/project16.jpg', title: 'Grand Residential Villa', category: 'Residential' },
-          { id: 17, src: './public/images/project17.jpg', title: 'Boundary Stone Masonry', category: 'Pool & RR Works' }
+          { id: 12, src: './public/images/project12.jpg', title: 'Specific Interior Features', category: 'Residential' },
+          { id: 13, src: './public/images/project13.jpg', title: 'Modern Bedroom Features', category: 'Residential' },
+          { id: 14, src: './public/images/project14.jpg', title: 'Home theatre Concept', category: 'Theatre Concept' },
+          { id: 15, src: './public/images/project15.jpg', title: 'Complete Gardening & Landscaping', category: 'Landscaping' },
+          { id: 16, src: './public/images/project16.jpg', title: 'Standard Room Sizing', category: 'Residential' },
+          { id: 17, src: './public/images/project17.jpg', title: 'Facade Design', category: 'Renovation' }
         ];
 
         const filtered = activeCategory === 'All' ? projects : projects.filter(p => p.category === activeCategory);
@@ -562,7 +562,7 @@
                 <div className="lg:col-span-5 space-y-6">
                   <div className="p-6 sm:p-8 rounded-2xl bg-zinc-900 border border-[#F4B400]/30 shadow-xl">
                     <div className="flex items-center gap-4 pb-6 border-b border-zinc-800">
-                      <div className="w-16 h-16 rounded-full bg-[#F4B400] flex items-center justify-center text-black font-black text-2xl">VV</div>
+                      <img src="public/images/veebin.jpeg" alt="Veebin Victo" className="w-16 h-16 rounded-full object-cover" /> 
                       <div>
                         <h3 className="text-xl font-bold text-white">Veebin Victo</h3>
                         <p className="text-[#F4B400] text-xs font-semibold uppercase">Owner & Civil Engineer</p>
