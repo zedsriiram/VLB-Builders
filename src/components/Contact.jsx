@@ -56,9 +56,11 @@ export default function Contact() {
             {/* Owner Details Card */}
             <div className="p-6 sm:p-8 rounded-2xl bg-zinc-900 border border-[#F4B400]/30 shadow-xl relative overflow-hidden">
               <div className="flex items-center gap-4 pb-6 border-b border-zinc-800">
-                <div className="w-16 h-16 rounded-full bg-[#F4B400] flex items-center justify-center text-black font-black text-2xl border-2 border-white shadow-lg">
-                  VV
-                </div>
+                 <img
+  src="/images/veebin.jpeg"
+  alt="Veebin Victo"
+  className="w-16 h-16 rounded-full object-cover border-2 border-white shadow-lg"
+/>
                 <div>
                   <h3 className="text-xl font-bold text-white">Veebin Victo</h3>
                   <p className="text-[#F4B400] text-xs font-semibold uppercase tracking-wider">Owner & Civil Engineer</p>
