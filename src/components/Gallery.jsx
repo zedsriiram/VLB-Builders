@@ -6,7 +6,6 @@ export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Renovation'];
 
    const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Theatre Concept', 'Landscaping', 'Renovation'];
 
