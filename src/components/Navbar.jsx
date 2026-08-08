@@ -50,7 +50,7 @@ export default function Navbar() {
                 VLB <span className="text-[#F4B400]">BUILDERS</span>
               </span>
               <span className="text-[10px] tracking-widest text-gray-400 uppercase font-medium">
-                Er. Veebin Victo
+                Pr. Veebin Victo
               </span>
             </div>
           </a>
