@@ -97,7 +97,7 @@ export default function Hero() {
 
               <div className="grid grid-cols-2 gap-6 my-6 text-left">
                 <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
-                  <div className="text-3xl font-black text-[#F4B400]">100+</div>
+                  <div className="text-3xl font-black text-[#F4B400]">67+</div>
                   <div className="text-xs text-gray-400 font-medium mt-1">Completed Projects</div>
                 </div>
                 <div className="p-4 rounded-xl bg-black/40 border border-zinc-800">
