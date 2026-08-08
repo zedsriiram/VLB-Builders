@@ -63,7 +63,7 @@ export default function Contact() {
 />
                 <div>
                   <h3 className="text-xl font-bold text-white">Veebin Victo</h3>
-                  <p className="text-[#F4B400] text-xs font-semibold uppercase tracking-wider">Owner & Civil Engineer</p>
+                  <p className="text-[#F4B400] text-xs font-semibold uppercase tracking-wider">Proprietor</p>
                   <p className="text-gray-400 text-xs mt-0.5">VLB Builders</p>
                 </div>
               </div>
