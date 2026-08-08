@@ -32,7 +32,7 @@ export default function Footer() {
             </p>
 
             <div className="pt-2">
-              <div className="text-white text-xs font-bold uppercase tracking-wider">Owner & Civil Engineer:</div>
+              <div className="text-white text-xs font-bold uppercase tracking-wider">Founder & Proprietor:</div>
               <div className="text-[#F4B400] text-sm font-semibold">Veebin Victo</div>
             </div>
           </div>
