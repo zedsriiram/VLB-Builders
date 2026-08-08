@@ -35,7 +35,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Led by <strong className="text-white">Er. Veebin Victo</strong>, VLB Builders provides end-to-end engineering, 3D elevations, luxury real estate development, swimming pools, RR works, and turnkey construction with uncompromised precision.
+              Led by <strong className="text-white">Pr. Veebin Victo</strong>, VLB Builders provides end-to-end engineering, 3D elevations, luxury real estate development, swimming pools, RR works, and turnkey construction with uncompromised precision.
             </p>
 
             {/* Core Value Highlights */}
@@ -91,7 +91,7 @@ export default function Hero() {
                 />
                 <div className="text-left">
                   <h3 className="text-xl font-bold text-white">VLB BUILDERS</h3>
-                  <p className="text-xs text-[#F4B400] font-semibold uppercase tracking-wider">Er. Veebin Victo (Owner)</p>
+                  <p className="text-xs text-[#F4B400] font-semibold uppercase tracking-wider">Pr. Veebin Victo (proprietor)</p>
                 </div>
               </div>
 
