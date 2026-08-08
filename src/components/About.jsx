@@ -29,7 +29,7 @@ export default function About() {
 />
                   <div>
                     <h4 className="text-white font-bold text-base">Veebin Victo</h4>
-                    <p className="text-[#F4B400] text-xs font-semibold">Founder & Lead Engineer</p>
+                    <p className="text-[#F4B400] text-xs font-semibold">Founder</p>
                   </div>
                 </div>
               </div>
