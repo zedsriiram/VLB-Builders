@@ -30,8 +30,8 @@ const projects = [
 ];
 
   const filteredProjects = activeCategory === 'All'
-    ? projectImages
-    : projectImages.filter(p => p.category === activeCategory);
+    ? projects
+    : projects.filter(p => p.category === activeCategory);
 
   return (
     <section id="gallery" className="py-24 bg-[#111111] relative">
