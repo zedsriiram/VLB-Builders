@@ -22,9 +22,11 @@ export default function About() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 p-4 rounded-xl glass-card border border-white/10">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-[#F4B400] flex items-center justify-center text-black font-extrabold text-xl">
-                    VV
-                  </div>
+                   <img
+  src="/images/veebin.jpeg"
+  alt="Veebin Victo"
+  className="w-12 h-12 rounded-full object-cover"
+/>
                   <div>
                     <h4 className="text-white font-bold text-base">Veebin Victo</h4>
                     <p className="text-[#F4B400] text-xs font-semibold">Founder & Lead Engineer</p>
