@@ -8,25 +8,27 @@ export default function Gallery() {
 
   const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Renovation'];
 
-  const projectImages = [
-    { id: 1, src: '/images/project1.jpg', title: 'Modern Villa Elevation', category: '3D Elevation', subtitle: 'Contemporary 2-Story Residential Villa' },
-    { id: 2, src: '/images/project2.jpg', title: 'Luxury House Construction', category: 'Residential', subtitle: 'Turnkey RCC Construction' },
-    { id: 3, src: '/images/project3.jpg', title: 'Custom Exterior Elevation', category: '3D Elevation', subtitle: 'Architectural Facade Design' },
-    { id: 4, src: '/images/project4.jpg', title: 'Contemporary Residence', category: 'Residential', subtitle: 'Vastu Compliant Modern Home' },
-    { id: 5, src: '/images/project5.jpg', title: 'R.R Masonry & Slope Works', category: 'Pool & RR Works', subtitle: 'Random Rubble Retaining Construction' },
-    { id: 6, src: '/images/project6.jpg', title: 'Building Renovation & Upgrade', category: 'Renovation', subtitle: 'Structural Facelift & Interior' },
-    { id: 7, src: '/images/project7.jpg', title: 'Luxury Villa Project', category: 'Residential', subtitle: 'Custom Architectural Execution' },
-    { id: 8, src: '/images/project8.jpg', title: 'Swimming Pool & Decking', category: 'Pool & RR Works', subtitle: 'Waterproofed Concrete Pool' },
-    { id: 9, src: '/images/project9.jpg', title: 'Compact Duplex Elevation', category: '3D Elevation', subtitle: 'Smart Urban Plot Design' },
-    { id: 10, src: '/images/project10.jpg', title: 'Commercial Foundation Works', category: 'Pool & RR Works', subtitle: 'Heavy Concrete & Column Framing' },
-    { id: 11, src: '/images/project11.jpg', title: 'Exterior Wall Remodeling', category: 'Renovation', subtitle: 'Weather-Shield Finish & Tiling' },
-    { id: 12, src: '/images/project12.jpg', title: 'Luxury Swimming Pool Installation', category: 'Pool & RR Works', subtitle: 'Filter System & LED Lighting' },
-    { id: 13, src: '/images/project13.jpg', title: 'Modern Flat-Roof Villa', category: 'Residential', subtitle: 'Turnkey Key Handover Project' },
-    { id: 14, src: '/images/project14.jpg', title: 'Urban Elevation Concept', category: '3D Elevation', subtitle: 'Glass & Steel Structural Facade' },
-    { id: 15, src: '/images/project15.jpg', title: 'Complete Home Overhaul', category: 'Renovation', subtitle: 'Full Building Remodel' },
-    { id: 16, src: '/images/project16.jpg', title: 'Grand Residential Project', category: 'Residential', subtitle: 'Independent Villa Development' },
-    { id: 17, src: '/images/project17.jpg', title: 'Boundary RR Works', category: 'Pool & RR Works', subtitle: 'Stone Perimeter Masonry' }
-  ];
+   const categories = ['All', 'Residential', '3D Elevation', 'Pool & RR Works', 'Theatre Concept', 'Landscaping', 'Renovation'];
+
+const projects = [
+  { id: 1, src: '/images/project1.jpg', title: 'Modern Villa Elevation', category: '3D Elevation' },
+  { id: 2, src: '/images/project2.jpg', title: 'Luxury House Construction', category: '3D Elevation' },
+  { id: 3, src: '/images/project3.jpg', title: 'Custom Interior Elevation', category: '3D Elevation' },
+  { id: 4, src: '/images/project4.jpg', title: 'Contemporary Residence', category: 'Residential' },
+  { id: 5, src: '/images/project5.jpg', title: 'Bedroom Interior Design', category: 'Residential' },
+  { id: 6, src: '/images/project6.jpg', title: 'Acoustic Wall & Upgrade', category: 'Theatre Concept' },
+  { id: 7, src: '/images/project7.jpg', title: 'Swimming Pool Project', category: 'Pool & RR Works' },
+  { id: 8, src: '/images/project8.jpg', title: 'Swimming Pool Installation', category: 'Pool & RR Works' },
+  { id: 9, src: '/images/project9.jpg', title: 'Compact Duplex Elevation', category: '3D Elevation' },
+  { id: 10, src: '/images/project10.jpg', title: 'Commercial Landscaping Bench Works', category: 'Landscaping' },
+  { id: 11, src: '/images/project11.jpg', title: 'Exterior Wall Remodeling', category: 'Renovation' },
+  { id: 12, src: '/images/project12.jpg', title: 'Specific Interior Features', category: 'Residential' },
+  { id: 13, src: '/images/project13.jpg', title: 'Modern Bedroom Features', category: 'Residential' },
+  { id: 14, src: '/images/project14.jpg', title: 'Home Theatre Concept', category: 'Theatre Concept' },
+  { id: 15, src: '/images/project15.jpg', title: 'Complete Gardening & Landscaping', category: 'Landscaping' },
+  { id: 16, src: '/images/project16.jpg', title: 'Standard Room Sizing', category: 'Residential' },
+  { id: 17, src: '/images/project17.jpg', title: 'Facade Design', category: 'Renovation' }
+];
 
   const filteredProjects = activeCategory === 'All'
     ? projectImages
